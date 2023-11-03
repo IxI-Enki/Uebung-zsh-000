@@ -1,0 +1,168 @@
+#!/bin/zsh
+#!.I𝖝                                                                                                                  #
+#▁⎦ ixi ⎣▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁#
+#  ╔══════════════════╦═════════════════════════════════════════════════════════════════════════════════════════════╗  #
+#  ║    ALIAS TTT     ║ Mit dem Alias TTT können Sie TikTakToe gegen einen zweiten Menschen spielen (Ein NPC Gegner ║  #
+#  ╟────19.10.2023────╢ wäre möglich, jedoch langweilig, da immer der 1te Spieler gewinnt, oder Unentschieden.      ║  #
+#  ╚══════════════════╩═════════════════════════════════════════════════════════════════════════════════════════════╝  #
+
+#▁▁▁▁⎦ ❱❱❱ TTT  ⎣▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁#
+
+alias TTT='
+  print -Pn %F{112} "\n\t↳ IxI´s Tik-Tak-Toe spielen? (y/n) \t";
+  read IN;
+  if [[ $IN = y ]]; then
+    print -P %F{10}"\t  --> Ausführen gewählt";
+    ABORT=0;
+    TURNS=1;
+    CURSERL=">";
+    CURSERR="<";
+    PLAYER=X;
+    CHOICE=" ";
+
+    CHOICE1=" ";CHOICE2=" ";CHOICE3=" ";
+    CHOICE4=" ";CHOICE5=" ";CHOICE6=" ";
+    CHOICE7=" ";CHOICE8=" ";CHOICE9=" ";
+
+    CURSER1L=" ";CURSER2L=" ";CURSER3L=" ";
+    CURSER4L=" ";CURSER5L=" ";CURSER6L=" ";
+    CURSER7L=" ";CURSER8L=" ";CURSER9L=" ";
+
+    CURSER1R=" ";CURSER2R=" ";CURSER3R=" ";
+    CURSER4R=" ";CURSER5R=" ";CURSER6R=" ";
+    CURSER7R=" ";CURSER8R=" ";CURSER9R=" ";
+
+    CURSER5L=$CURSERL;
+    CURSER5R=$CURSERR;
+    INPUT=0;
+
+    while [ $ABORT != 1 ];
+    do
+      clear;
+      print -P "Zug: $TURNS Spieler: $PLAYER"
+      print -P "\n";
+      print -P " $CURSER1L$CHOICE1$CURSER1R|$CURSER2L$CHOICE2$CURSER2R|$CURSER3L$CHOICE3$CURSER3R ";
+      print -P " ---+---+--- ";
+      print -P " $CURSER4L$CHOICE4$CURSER4R|$CURSER5L$CHOICE5$CURSER5R|$CURSER6L$CHOICE6$CURSER6R ";
+      print -P " ---+---+--- ";
+      print -P " $CURSER7L$CHOICE7$CURSER7R|$CURSER8L$CHOICE8$CURSER8R|$CURSER9L$CHOICE9$CURSER9R ";
+      print -P " \n[WASD]-Zeiger bewegen ";
+      print -P " [E]   -Feld auswählen ";
+      print -P " [Q]   -Quit ";
+
+        if [[ $CURSERL = $CURSER1L ]]; then CHOICE=$CHOICE1;
+      elif [[ $CURSERL = $CURSER2L ]]; then CHOICE=$CHOICE2;
+      elif [[ $CURSERL = $CURSER3L ]]; then CHOICE=$CHOICE3;
+      elif [[ $CURSERL = $CURSER4L ]]; then CHOICE=$CHOICE4;
+      elif [[ $CURSERL = $CURSER5L ]]; then CHOICE=$CHOICE5;
+      elif [[ $CURSERL = $CURSER6L ]]; then CHOICE=$CHOICE6;
+      elif [[ $CURSERL = $CURSER7L ]]; then CHOICE=$CHOICE7;
+      elif [[ $CURSERL = $CURSER8L ]]; then CHOICE=$CHOICE8;
+      elif [[ $CURSERL = $CURSER9L ]]; then CHOICE=$CHOICE9;
+        fi
+
+     read -k 1 INPUT;
+    ###### PRESS [W] ######
+        if [[ $INPUT = w ]]; then
+          if [[ $CURSERL = $CURSER1L ]]; then CURSER7L=$CURSERL;CURSER7R=$CURSERR;CURSER1L=" ";CURSER1R=" ";
+        elif [[ $CURSERL = $CURSER2L ]]; then CURSER8L=$CURSERL;CURSER8R=$CURSERR;CURSER2L=" ";CURSER2R=" ";
+        elif [[ $CURSERL = $CURSER3L ]]; then CURSER9L=$CURSERL;CURSER9R=$CURSERR;CURSER3L=" ";CURSER3R=" ";
+        elif [[ $CURSERL = $CURSER4L ]]; then CURSER1L=$CURSERL;CURSER1R=$CURSERR;CURSER4L=" ";CURSER4R=" ";
+        elif [[ $CURSERL = $CURSER5L ]]; then CURSER2L=$CURSERL;CURSER2R=$CURSERR;CURSER5L=" ";CURSER5R=" ";
+        elif [[ $CURSERL = $CURSER6L ]]; then CURSER3L=$CURSERL;CURSER3R=$CURSERR;CURSER6L=" ";CURSER6R=" ";
+        elif [[ $CURSERL = $CURSER7L ]]; then CURSER4L=$CURSERL;CURSER4R=$CURSERR;CURSER7L=" ";CURSER7R=" ";
+        elif [[ $CURSERL = $CURSER8L ]]; then CURSER5L=$CURSERL;CURSER5R=$CURSERR;CURSER8L=" ";CURSER8R=" ";
+        elif [[ $CURSERL = $CURSER9L ]]; then CURSER6L=$CURSERL;CURSER6R=$CURSERR;CURSER9L=" ";CURSER9R=" ";
+          fi
+    ###### PRESS [S] ######
+      elif [[ $INPUT = s ]]; then
+          if [[ $CURSERL = $CURSER1L ]]; then CURSER4L=$CURSERL;CURSER4R=$CURSERR;CURSER1L=" ";CURSER1R=" ";
+        elif [[ $CURSERL = $CURSER2L ]]; then CURSER5L=$CURSERL;CURSER5R=$CURSERR;CURSER2L=" ";CURSER2R=" ";
+        elif [[ $CURSERL = $CURSER3L ]]; then CURSER6L=$CURSERL;CURSER6R=$CURSERR;CURSER3L=" ";CURSER3R=" ";
+        elif [[ $CURSERL = $CURSER4L ]]; then CURSER7L=$CURSERL;CURSER7R=$CURSERR;CURSER4L=" ";CURSER4R=" ";
+        elif [[ $CURSERL = $CURSER5L ]]; then CURSER8L=$CURSERL;CURSER8R=$CURSERR;CURSER5L=" ";CURSER5R=" ";
+        elif [[ $CURSERL = $CURSER6L ]]; then CURSER9L=$CURSERL;CURSER9R=$CURSERR;CURSER6L=" ";CURSER6R=" ";
+        elif [[ $CURSERL = $CURSER7L ]]; then CURSER1L=$CURSERL;CURSER1R=$CURSERR;CURSER7L=" ";CURSER7R=" ";
+        elif [[ $CURSERL = $CURSER8L ]]; then CURSER2L=$CURSERL;CURSER2R=$CURSERR;CURSER8L=" ";CURSER8R=" ";
+        elif [[ $CURSERL = $CURSER9L ]]; then CURSER3L=$CURSERL;CURSER3R=$CURSERR;CURSER9L=" ";CURSER9R=" ";
+          fi
+    ###### PRESS [A] ######
+      elif [[ $INPUT = a ]]; then
+          if [[ $CURSERL = $CURSER1L ]]; then CURSER3L=$CURSERL;CURSER3R=$CURSERR;CURSER1L=" ";CURSER1R=" ";
+        elif [[ $CURSERL = $CURSER2L ]]; then CURSER1L=$CURSERL;CURSER1R=$CURSERR;CURSER2L=" ";CURSER2R=" ";
+        elif [[ $CURSERL = $CURSER3L ]]; then CURSER2L=$CURSERL;CURSER2R=$CURSERR;CURSER3L=" ";CURSER3R=" ";
+        elif [[ $CURSERL = $CURSER4L ]]; then CURSER6L=$CURSERL;CURSER6R=$CURSERR;CURSER4L=" ";CURSER4R=" ";
+        elif [[ $CURSERL = $CURSER5L ]]; then CURSER4L=$CURSERL;CURSER4R=$CURSERR;CURSER5L=" ";CURSER5R=" ";
+        elif [[ $CURSERL = $CURSER6L ]]; then CURSER5L=$CURSERL;CURSER5R=$CURSERR;CURSER6L=" ";CURSER6R=" ";
+        elif [[ $CURSERL = $CURSER7L ]]; then CURSER9L=$CURSERL;CURSER9R=$CURSERR;CURSER7L=" ";CURSER7R=" ";
+        elif [[ $CURSERL = $CURSER8L ]]; then CURSER7L=$CURSERL;CURSER7R=$CURSERR;CURSER8L=" ";CURSER8R=" ";
+        elif [[ $CURSERL = $CURSER9L ]]; then CURSER8L=$CURSERL;CURSER8R=$CURSERR;CURSER9L=" ";CURSER9R=" ";
+          fi
+    ###### PRESS [D] ######
+      elif [[ $INPUT = d ]]; then
+          if [[ $CURSERL = $CURSER1L ]]; then CURSER2L=$CURSERL;CURSER2R=$CURSERR;CURSER1L=" ";CURSER1R=" ";
+        elif [[ $CURSERL = $CURSER2L ]]; then CURSER3L=$CURSERL;CURSER3R=$CURSERR;CURSER2L=" ";CURSER2R=" ";
+        elif [[ $CURSERL = $CURSER3L ]]; then CURSER1L=$CURSERL;CURSER1R=$CURSERR;CURSER3L=" ";CURSER3R=" ";
+        elif [[ $CURSERL = $CURSER4L ]]; then CURSER5L=$CURSERL;CURSER5R=$CURSERR;CURSER4L=" ";CURSER4R=" ";
+        elif [[ $CURSERL = $CURSER5L ]]; then CURSER6L=$CURSERL;CURSER6R=$CURSERR;CURSER5L=" ";CURSER5R=" ";
+        elif [[ $CURSERL = $CURSER6L ]]; then CURSER4L=$CURSERL;CURSER4R=$CURSERR;CURSER6L=" ";CURSER6R=" ";
+        elif [[ $CURSERL = $CURSER7L ]]; then CURSER8L=$CURSERL;CURSER8R=$CURSERR;CURSER7L=" ";CURSER7R=" ";
+        elif [[ $CURSERL = $CURSER8L ]]; then CURSER9L=$CURSERL;CURSER9R=$CURSERR;CURSER8L=" ";CURSER8R=" ";
+        elif [[ $CURSERL = $CURSER9L ]]; then CURSER7L=$CURSERL;CURSER7R=$CURSERR;CURSER9L=" ";CURSER9R=" ";
+          fi
+    ###### PRESS [Esdwa] ######
+      elif [[ ($INPUT = e) && ($CHOICE = " ") ]]; then
+          TURNS=$(($TURNS+1));
+          if [[ $CURSERL = $CURSER1L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE1=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE1=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER2L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE2=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE2=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER3L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE3=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE3=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER4L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE4=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE4=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER5L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE5=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE5=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER6L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE6=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE6=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER7L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE7=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE7=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER8L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE8=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE8=O;PLAYER=X;
+              fi
+        elif [[ $CURSERL = $CURSER9L ]]; then
+              if [[ $PLAYER = X ]]; then CHOICE9=X;PLAYER=O;
+            elif [[ $PLAYER = O ]]; then CHOICE9=O;PLAYER=X;
+              fi
+          fi
+    ##### WIN CONDITION #####
+      if [[ (($CHOICE1 = X) && ($CHOICE2 = X) && ($CHOICE3 = X )) || (($CHOICE4 = X)&&($CHOICE5 = X)&&($CHOICE6 = X)) || (($CHOICE7 = X)&&($CHOICE8 = X)&&($CHOICE9 = X)) ||
+            (($CHOICE1 = X) && ($CHOICE4 = X) && ($CHOICE7 = X )) || (($CHOICE2 = X)&&($CHOICE5 = X)&&($CHOICE8 = X)) || (($CHOICE3 = X)&&($CHOICE6 = X)&&($CHOICE9 = X)) ||
+            (($CHOICE1 = X) && ($CHOICE5 = X) && ($CHOICE9 = X )) || (($CHOICE3 = X)&&($CHOICE5 = X)&&($CHOICE7 = X)) ]]; then
+            print -P "\n Spieler X hat gewonnen!!"; ABORT=1;fi;
+      if [[ (($CHOICE1 = O) && ($CHOICE2 = O) && ($CHOICE3 = O )) || (($CHOICE4 = O)&&($CHOICE5 = O)&&($CHOICE6 = O)) || (($CHOICE7 = O)&&($CHOICE8 = O)&&($CHOICE9 = O)) ||
+            (($CHOICE1 = O) && ($CHOICE4 = O) && ($CHOICE7 = O )) || (($CHOICE2 = O)&&($CHOICE5 = O)&&($CHOICE8 = O)) || (($CHOICE3 = O)&&($CHOICE6 = O)&&($CHOICE9 = O)) ||
+            (($CHOICE1 = O) && ($CHOICE5 = O) && ($CHOICE9 = O )) || (($CHOICE3 = O)&&($CHOICE5 = O)&&($CHOICE7 = O)) ]]; then
+            print -P "\n Spieler O hat gewonnen!!"; ABORT=1;fi;
+      if [[ $TURNS = 10 ]]; then print -P "\n Unentschieden -- Ende";ABORT=1;fi;
+      elif [[ $INPUT = q ]]; then ABORT=1;
+        fi
+    done
+  fi
+'
+
