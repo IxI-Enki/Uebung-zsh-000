@@ -1,2 +1,8 @@
 # Uebung-zsh-000
-Tik-Tak-Toe alias
+-------------------------------------------------
+
+### Die Idee : ein ALIAS zum Tik-Tak-Toe spielen in der ZSH
+
+-------------------------------------------------
+
+
