@@ -7,4 +7,4 @@
 
 ### Die Realisierung: 
 
-![TikTakToe IN ZSHELL](https://github.com/IxI-Enki/Uebung-zsh-000/assets/138018029/d4e26c56-2094-4256-a335-76848f892ac7)
+![TikTakToe IN ZSHELL](https://github.com/IxI-Enki/Uebung-zsh-000/assets/138018029/9c04c2d3-2751-4eec-8f88-8df959d3ed1c)
