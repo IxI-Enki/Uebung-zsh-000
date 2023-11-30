@@ -163,7 +163,7 @@ alias TTTc='
             (($CHOICE3 = %F{10}X%F{255}) && ($CHOICE6 = %F{10}X%F{255}) && ($CHOICE9 = %F{10}X%F{255})) ||
             (($CHOICE1 = %F{10}X%F{255}) && ($CHOICE5 = %F{10}X%F{255}) && ($CHOICE9 = %F{10}X%F{255})) ||
             (($CHOICE3 = %F{10}X%F{255}) && ($CHOICE5 = %F{10}X%F{255}) && ($CHOICE7 = %F{10}X%F{255})) ]]; then
-            print -P "\n Spieler %F{10}X%F{255} hat gewonnen!!"; ABORT=1;fi;
+            print -P "\n %F{10} Spieler X hat gewonnen!! %F{255}"; ABORT=1;fi;
       if [[ (($CHOICE1 = %F{3}O%F{255}) && ($CHOICE2 = %F{3}O%F{255}) && ($CHOICE3 = %F{3}O%F{255})) ||
             (($CHOICE4 = %F{3}O%F{255}) && ($CHOICE5 = %F{3}O%F{255}) && ($CHOICE6 = %F{3}O%F{255})) ||
             (($CHOICE7 = %F{3}O%F{255}) && ($CHOICE8 = %F{3}O%F{255}) && ($CHOICE9 = %F{3}O%F{255})) ||
@@ -172,7 +172,7 @@ alias TTTc='
             (($CHOICE3 = %F{3}O%F{255}) && ($CHOICE6 = %F{3}O%F{255}) && ($CHOICE9 = %F{3}O%F{255})) ||
             (($CHOICE1 = %F{3}O%F{255}) && ($CHOICE5 = %F{3}O%F{255}) && ($CHOICE9 = %F{3}O%F{255})) ||
             (($CHOICE3 = %F{3}O%F{255}) && ($CHOICE5 = %F{3}O%F{255}) && ($CHOICE7 = %F{3}O%F{255})) ]]; then
-            print -P "\n Spieler %F{3}O%F{255} hat gewonnen!!"; ABORT=1;fi;
+            print -P "\n %F{3} Spieler O hat gewonnen!! %F{255}"; ABORT=1;fi;
       if [[ $TURNS = 10 ]]; then print -P "\n Unentschieden -- Ende";ABORT=1;fi;
       elif [[ $INPUT = q ]]; then ABORT=1;
         fi
