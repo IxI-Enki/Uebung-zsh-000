@@ -39,8 +39,12 @@ alias TTTc='
     while [ $ABORT != 1 ];
     do
       clear;
-      print -P %F{255}"Zug: $TURNS Spieler: $PLAYER"
-      print -P "\n";
+      print -P %F{255}"Zug: $TURNS ";
+        if [[ $PLAYER = X ]]; then
+        print -P %F{10}"Spieler: X"%F{255};
+      elif [[ $PLAYER = O ]]; then
+        print -P %F{3}"Spieler: O"%F{255};
+        fi
       print -P " $CURSER1L$CHOICE1$CURSER1R|$CURSER2L$CHOICE2$CURSER2R|$CURSER3L$CHOICE3$CURSER3R ";
       print -P " ---+---+--- ";
       print -P " $CURSER4L$CHOICE4$CURSER4R|$CURSER5L$CHOICE5$CURSER5R|$CURSER6L$CHOICE6$CURSER6R ";
